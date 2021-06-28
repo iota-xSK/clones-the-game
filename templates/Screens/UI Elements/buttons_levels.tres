@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/andina/andina.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0705882, 0.0705882, 0.0784314, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.152941, 0.231373, 0.47451, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.627451, 0.756863, 1, 1 )
+
+[resource]
+default_font = ExtResource( 1 )
+Button/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = ExtResource( 1 )
+Button/styles/disabled = SubResource( 6 )
+Button/styles/focus = SubResource( 2 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 7 )
+Button/styles/pressed = SubResource( 5 )

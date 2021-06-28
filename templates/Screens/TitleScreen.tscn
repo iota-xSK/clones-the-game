@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/04b_30/04b_30.tres" type="DynamicFont" id=1]
+[ext_resource path="res://templates/Screens/UI Elements/MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://templates/Screens/UI Elements/FadeIn.tscn" type="PackedScene" id=3]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 60.0
+margin_top = 30.0
+margin_right = 420.0
+margin_bottom = 240.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 360.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 1 )
+text = "Clones!"
+align = 1
+
+[node name="CenterRow" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 38.0
+margin_right = 360.0
+margin_bottom = 210.0
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/CenterRow"]
+margin_right = 360.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PlayButton" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
+margin_top = 61.0
+margin_bottom = 75.0
+
+[node name="PlayButton2" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
+margin_top = 79.0
+margin_bottom = 93.0
+
+[node name="PlayButton3" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
+margin_top = 97.0
+margin_bottom = 111.0
+
+[node name="FadeIn" parent="." instance=ExtResource( 3 )]
+visible = false
