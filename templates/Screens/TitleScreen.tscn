@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/04b_30/04b_30.tres" type="DynamicFont" id=1]
 [ext_resource path="res://templates/Screens/UI Elements/MenuButton.tscn" type="PackedScene" id=2]
 [ext_resource path="res://templates/Screens/UI Elements/FadeIn.tscn" type="PackedScene" id=3]
+[ext_resource path="res://templates/Screens/TitleScreen.gd" type="Script" id=4]
 
 [node name="TitleScreen" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 60.0
@@ -38,6 +40,7 @@ alignment = 1
 [node name="PlayButton" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
 margin_top = 61.0
 margin_bottom = 75.0
+text = "Play"
 
 [node name="PlayButton2" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
 margin_top = 79.0
@@ -49,3 +52,5 @@ margin_bottom = 111.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 3 )]
 visible = false
+
+[connection signal="pressed" from="VBoxContainer/CenterRow/Buttons/PlayButton" to="." method="_on_PlayButton_pressed"]
