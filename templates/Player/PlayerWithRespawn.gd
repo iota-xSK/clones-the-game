@@ -11,19 +11,22 @@ var safe_to_respawn = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	respawn() # I know it sound pointless, but it fixes a bug. DO NOT TOUCH!
+	respawn() # Not to sound like a valve dev, but I know it sound pointless, but it fixes a bug. DO NOT TOUCH!
 	#					 the bug is that the first time when the player spawns, it doesn't auto-respawn them. it throws an erros: E 0:00:01.322   emit_signal: Error calling method from signal 'screen_exited': 'Node2D(PlayerWithRespawn.gd)::_on_VisibilityNotifier2D_screen_exited': Method not found..
 	#						<C++ Source>  core/object.cpp:1257 @ emit_signal()
 
 
 func on_Player_screen_exited():
-	print("respawner got message")
+	print("respawner got message, waiting...")
 	yield(get_tree().create_timer(1.0), "timeout")
+	print("waiting over")
 	print("clone number: ", len(get_tree().get_nodes_in_group("player_group")))
 	if len(get_tree().get_nodes_in_group("player_group")) == 0 and safe_to_respawn == true:
+		safe_to_respawn = false
 		respawn()
 		print("respawned")
 	yield(get_tree().create_timer(1.0), "timeout")
+	safe_to_respawn = true
 
 
 func spawn(player_scene, location):
@@ -47,25 +50,3 @@ func respawn():
 func _on_Button_pressed():
 	#("trying to respawn...")
 	respawn()
-
-
-#func _on_VisibilityNotifier2D_screen_exited():
-#	print("exited screen")
-#	yield(get_tree().create_timer(1.0), "timeout")
-#	print(len(get_tree().get_nodes_in_group("player_group")))
-#	if len(get_tree().get_nodes_in_group("player_group")) <= 1:
-#		#respawn()
-#		print("waited, should respawn now")
-
-
-#func _on_Player_exited_screen():
-#	print("respawner got message")
-#	yield(get_tree().create_timer(1.0), "timeout")
-#	print("clone number: ", len(get_tree().get_nodes_in_group("player_group")))
-#	if len(get_tree().get_nodes_in_group("player_group")) <= 1:
-#		respawn()
-#		print("respawned")
-#
-#
-#func _on_VisibilityNotifier2D_screen_exited():
-#	print("respawner got message")
