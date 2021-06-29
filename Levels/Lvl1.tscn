@@ -109,6 +109,7 @@ points = PoolVector2Array( 15.4213, 15.9587, 15.9622, 14.9851, 15.9622, 16 )
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
+tile_data = PoolIntArray( 458768, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655372, 0, 0 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 56.0

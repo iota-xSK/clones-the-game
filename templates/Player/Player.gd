@@ -17,9 +17,12 @@ var jump_when_down = false
 
 var outside_velocity = Vector2()
 
+signal on_screen_exited
+
 
 func _init():
 	add_to_group("player_group")
+	
 
 func _physics_process(delta):
 	var right = Input.is_action_pressed("move_right")
@@ -63,3 +66,6 @@ func _on_Timer_timeout():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+	print("freed")
+	emit_signal("on_screen_exited")
+
