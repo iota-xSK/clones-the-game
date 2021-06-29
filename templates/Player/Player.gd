@@ -66,6 +66,6 @@ func _on_Timer_timeout():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-	print("freed")
+	#print("freed")
 	emit_signal("on_screen_exited")
 

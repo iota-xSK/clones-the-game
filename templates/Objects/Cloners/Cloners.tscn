@@ -1,11 +1,34 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Art/world/cloner enter.png" type="Texture" id=1]
 [ext_resource path="res://Art/world/cloner exit.png" type="Texture" id=2]
 [ext_resource path="res://templates/Objects/Cloners/Cloners.gd" type="Script" id=3]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0004.png" type="Texture" id=4]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0005.png" type="Texture" id=5]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0002.png" type="Texture" id=6]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0006.png" type="Texture" id=7]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0007.png" type="Texture" id=8]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0009.png" type="Texture" id=9]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0011.png" type="Texture" id=10]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0013.png" type="Texture" id=11]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0012.png" type="Texture" id=12]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0008.png" type="Texture" id=13]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0000.png" type="Texture" id=14]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0014.png" type="Texture" id=15]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0010.png" type="Texture" id=16]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0001.png" type="Texture" id=17]
+[ext_resource path="res://Art/world/cloner progress/jump_platform_v_frame0003.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.01702, 8 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 17 ), ExtResource( 6 ), ExtResource( 18 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 15 ) ],
+"loop": false,
+"name": "charging",
+"speed": 8.0
+} ]
 
 [node name="Cloners" type="Node2D"]
 script = ExtResource( 3 )
@@ -20,8 +43,18 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="ClonerEnter"]
 texture = ExtResource( 1 )
 
+[node name="Timer" type="Timer" parent="ClonerEnter"]
+one_shot = true
+
+[node name="ProgresBar" type="AnimatedSprite" parent="ClonerEnter"]
+position = Vector2( 0, -6 )
+frames = SubResource( 2 )
+animation = "charging"
+
 [node name="ClonerExit" type="Sprite" parent="."]
 position = Vector2( 18, 0 )
 texture = ExtResource( 2 )
 
 [connection signal="body_entered" from="ClonerEnter" to="." method="_on_ClonerEnter_body_entered"]
+[connection signal="timeout" from="ClonerEnter/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="ClonerEnter/ProgresBar" to="." method="_on_ProgresBar_animation_finished"]

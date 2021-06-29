@@ -17,14 +17,14 @@ func _ready():
 
 
 func on_Player_screen_exited():
-	print("respawner got message, waiting...")
+#	print("respawner got message, waiting...")
 	yield(get_tree().create_timer(1.0), "timeout")
-	print("waiting over")
-	print("clone number: ", len(get_tree().get_nodes_in_group("player_group")))
+#	print("waiting over")
+#	print("clone number: ", len(get_tree().get_nodes_in_group("player_group")))
 	if len(get_tree().get_nodes_in_group("player_group")) == 0 and safe_to_respawn == true:
 		safe_to_respawn = false
 		respawn()
-		print("respawned")
+#		print("respawned")
 	yield(get_tree().create_timer(1.0), "timeout")
 	safe_to_respawn = true
 
