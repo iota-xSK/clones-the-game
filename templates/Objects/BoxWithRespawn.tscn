@@ -1,21 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Art/world/box.png" type="Texture" id=1]
 [ext_resource path="res://templates/Objects/BoxRigidBody.gd" type="Script" id=2]
 [ext_resource path="res://templates/Objects/BoxWithRespawn.gd" type="Script" id=3]
 
-[sub_resource type="PhysicsMaterial" id=2]
+[sub_resource type="PhysicsMaterial" id=1]
 friction = 0.13
-bounce = 0.02
 
-[sub_resource type="CircleShape2D" id=3]
-radius = 1.0
-
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 8, 7 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 7, 8 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
 
 [node name="BoxWithRespawn" type="Node2D"]
 script = ExtResource( 3 )
@@ -25,8 +18,10 @@ script = ExtResource( 3 )
 [node name="RigidBody2D" type="RigidBody2D" parent="." groups=[
 "bodies",
 ]]
+collision_layer = 5
+collision_mask = 5
 mass = 4.0
-physics_material_override = SubResource( 2 )
+physics_material_override = SubResource( 1 )
 custom_integrator = true
 can_sleep = false
 script = ExtResource( 2 )
@@ -35,23 +30,4 @@ script = ExtResource( 2 )
 texture = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 7, -7 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource( 4 )
-
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource( 5 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -7, -7 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( -7, 7 )
-shape = SubResource( 3 )
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2( 7, 7 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
