@@ -5,7 +5,7 @@ export (int) var jump_speed = -300
 export (float, 0, 1.0) var friction = 0.6
 export (float, 0, 1.0) var acceleration = 0.9
 #export (int, 0, 200) var push = 30
-var push = 30
+var push = 40
 var outside_velocity = Vector2(0, 0)
 var gravity
 
