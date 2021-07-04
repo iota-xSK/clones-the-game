@@ -1,5 +1,17 @@
 extends KinematicBody2D
 
+export (int) var speed = 130
+export (int) var jump_speed = -300
+export (float, 0, 1.0) var friction = 0.6
+export (float, 0, 1.0) var acceleration = 0.9
+#export (int, 0, 200) var push = 30
+var push = 30
+var outside_velocity = Vector2(0, 0)
+var gravity
+
+var velocity = Vector2.ZERO
+
+
 #export (int, 0, 200) var push = 100
 #var run_speed = 130
 #var acceleration = 0.9
@@ -20,11 +32,14 @@ extends KinematicBody2D
 #
 signal on_screen_exited
 
-
 func _init():
 	add_to_group("player_group")
-	
 
+func _ready():
+	gravity = get_parent().get_parent().get("gravity")
+	if gravity == null:
+		push_error("Parent of the player doesn't have gravity. Please put in a Level2D node. Setting gravity to 1300")
+		gravity = 1300
 #func _physics_process(delta):
 #	var right = Input.is_action_pressed("move_right")
 #	var left = Input.is_action_pressed("move_left")
@@ -79,20 +94,7 @@ func _init():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
-	#print("freed")
 	emit_signal("on_screen_exited")
-
-
-
-
-export (int) var speed = 130
-export (int) var jump_speed = -300
-export (int) var gravity = 1300
-export (float, 0, 1.0) var friction = 0.6
-export (float, 0, 1.0) var acceleration = 0.9
-var outside_velocity = Vector2(0, 0)
-
-var velocity = Vector2.ZERO
 
 func get_input():
 	var dir = 0
@@ -110,7 +112,13 @@ func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
 	velocity += outside_velocity
-	velocity = move_and_slide(velocity, Vector2.UP)
+	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+	
+	for index in get_slide_count():
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("bodies"):
+			collision.collider.apply_central_impulse(-collision.normal * push)
+				
 	outside_velocity = Vector2(0, 0)
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_floor():

@@ -1,13 +1,7 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 const PLAYER = preload("res://templates/Player/Player.tscn")
-
 var safe_to_respawn = true
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,12 +13,9 @@ func _ready():
 func on_Player_screen_exited():
 #	print("respawner got message, waiting...")
 	yield(get_tree().create_timer(1.0), "timeout")
-#	print("waiting over")
-#	print("clone number: ", len(get_tree().get_nodes_in_group("player_group")))
 	if len(get_tree().get_nodes_in_group("player_group")) == 0 and safe_to_respawn == true:
 		safe_to_respawn = false
 		respawn()
-#		print("respawned")
 	yield(get_tree().create_timer(1.0), "timeout")
 	safe_to_respawn = true
 
