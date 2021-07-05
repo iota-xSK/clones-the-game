@@ -4,7 +4,7 @@
 [ext_resource path="res://templates/Boxes/BoxKinematic2D.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+extents = Vector2( 7.77053, 7.79942 )
 
 [node name="BoxKinematic2D" type="KinematicBody2D"]
 collision_layer = 5

@@ -5,11 +5,10 @@ export (int) var jump_speed = -300
 export (float, 0, 1.0) var friction = 0.6
 export (float, 0, 1.0) var acceleration = 0.9
 export (int) var mass = 1
-#export (int, 0, 200) var push = 30
-var push = 40
 var outside_velocity = Vector2(0, 0)
 var gravity
 var velocity = Vector2.ZERO
+var current_velocity
 
 var movable_bodies = []
 
@@ -40,34 +39,36 @@ func get_input():
 		velocity.x = lerp(velocity.x, 0, friction)	
 
 
+func push():
+	for i in get_slide_count():
+		var colision = get_slide_collision(i)
+		var collider = colision.collider
+		if collider.is_in_group("physics_bodies") and colision.normal.y == 0:
+			velocity.x = velocity.x/2
+			collider.velocity.x = velocity.x
+
 func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
-	velocity += outside_velocity
-	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
-#	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, true)
-	for index in get_slide_count():
-		var collision = get_slide_collision(index)
-		if collision.collider.is_in_group("bodies"):
-			collision.collider.apply_central_impulse(Vector2(-collision.normal.x * push, 0))
-
-	outside_velocity = Vector2(0, 0)
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_floor():
 			velocity.y = jump_speed
 	if Input.is_action_just_pressed("interact"):
 		for body in movable_bodies:
 			body.player_interact = not body.player_interact
-			print("body.player_interact: ", body.player_interact)
-			print(movable_bodies)
-
+	push()
+	velocity += outside_velocity
+	current_velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
+#	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, true)
+	velocity = current_velocity
+	outside_velocity = Vector2(0, 0)
 func _on_Area2D_body_entered(body):
 	movable_bodies.append(body)
 	body.player = self
-	print(movable_bodies)
+	#print(movable_bodies)
 
 func _on_Area2D_body_exited(body):
 	movable_bodies.erase(body)
 	body.player_interact = false
-	print(movable_bodies)
+#	print(movable_bodies)
 	
