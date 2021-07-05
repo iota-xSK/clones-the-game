@@ -43,9 +43,10 @@ func push():
 	for i in get_slide_count():
 		var colision = get_slide_collision(i)
 		var collider = colision.collider
-		if collider.is_in_group("physics_bodies") and colision.normal.y == 0:
-			velocity.x = velocity.x/2
-			collider.velocity.x = velocity.x
+		if is_instance_valid(collider):
+			if collider.is_in_group("physics_bodies") and colision.normal.y == 0:
+				velocity.x = velocity.x/2
+				collider.velocity.x = velocity.x
 
 func _physics_process(delta):
 	get_input()
@@ -62,13 +63,3 @@ func _physics_process(delta):
 #	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, true)
 	velocity = current_velocity
 	outside_velocity = Vector2(0, 0)
-func _on_Area2D_body_entered(body):
-	movable_bodies.append(body)
-	body.player = self
-	#print(movable_bodies)
-
-func _on_Area2D_body_exited(body):
-	movable_bodies.erase(body)
-	body.player_interact = false
-#	print(movable_bodies)
-	
