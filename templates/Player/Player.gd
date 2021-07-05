@@ -54,6 +54,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_floor():
 			velocity.y = jump_speed
+	if Input.is_action_just_pressed("move_down"):
+		if not is_on_floor():
+			velocity.y += -2 * jump_speed
 	if Input.is_action_just_pressed("interact"):
 		for body in movable_bodies:
 			body.player_interact = not body.player_interact

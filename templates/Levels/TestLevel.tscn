@@ -107,12 +107,12 @@ position = Vector2( 288.857, 138.841 )
 [node name="BoxKinematic2D4" parent="Level2D" groups=[
 "physics_bodies",
 ] instance=ExtResource( 7 )]
-position = Vector2( 304.857, 138.841 )
+position = Vector2( 320.857, 138.841 )
 
 [node name="BoxKinematic2D5" parent="Level2D" groups=[
 "physics_bodies",
 ] instance=ExtResource( 7 )]
-position = Vector2( 320.857, 138.841 )
+position = Vector2( 352.857, 138.841 )
 
 [node name="BoxKinematic2D7" parent="Level2D" groups=[
 "physics_bodies",
@@ -122,7 +122,7 @@ position = Vector2( 288.857, 186.841 )
 [node name="BoxKinematic2D8" parent="Level2D" groups=[
 "physics_bodies",
 ] instance=ExtResource( 7 )]
-position = Vector2( 304.857, 186.841 )
+position = Vector2( 384.857, 186.841 )
 
 [node name="BoxKinematic2D9" parent="Level2D" groups=[
 "physics_bodies",
@@ -132,17 +132,17 @@ position = Vector2( 320.857, 186.841 )
 [node name="BoxKinematic2D10" parent="Level2D" groups=[
 "physics_bodies",
 ] instance=ExtResource( 7 )]
-position = Vector2( 336.857, 186.841 )
+position = Vector2( 352.857, 186.841 )
 
 [node name="BoxKinematic2D3" parent="Level2D" groups=[
 "physics_bodies",
 ] instance=ExtResource( 7 )]
-position = Vector2( 288.857, 90.841 )
+position = Vector2( 320.857, 90.841 )
 
 [node name="BoxKinematic2D6" parent="Level2D" groups=[
 "physics_bodies",
 ] instance=ExtResource( 7 )]
-position = Vector2( 304.857, 90.841 )
+position = Vector2( 288.857, 90.841 )
 
 [connection signal="pressed" from="Button" to="Level2D/PlayerWithRespawn" method="_on_Button_pressed"]
 
