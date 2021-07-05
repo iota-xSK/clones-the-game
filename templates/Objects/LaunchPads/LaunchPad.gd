@@ -5,7 +5,8 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_LaunchPad_body_entered(body):
-	body.outside_velocity = Vector2(0, 2 * body.jump_speed).rotated(rotation)
+#	body.outside_velocity = Vector2(0, 2 * body.jump_speed).rotated(rotation)
+	body.outside_velocity = Vector2(0, -600).rotated(rotation)
 
 	$AnimatedSprite.play("default", true)
 	#$AnimatedSprite.set_frame(0)

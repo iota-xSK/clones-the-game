@@ -48,38 +48,10 @@ position = Vector2( 0, -8.00004 )
 [node name="ClonerExit" parent="Cloners" index="1"]
 position = Vector2( 39.9997, 136 )
 
-[node name="Cloners2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 216.857, 2.84096 )
-
-[node name="ClonerEnter" parent="Cloners2" index="0"]
-position = Vector2( 39.9997, 88 )
-
-[node name="CollisionShape2D" parent="Cloners2/ClonerEnter" index="0"]
-position = Vector2( 0, -3.8147e-05 )
-
-[node name="ProgresBar" parent="Cloners2/ClonerEnter" index="3"]
-position = Vector2( 0, -8.00004 )
-
-[node name="ClonerExit" parent="Cloners2" index="1"]
-position = Vector2( 39.9997, 136 )
-
-[node name="Cloners3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 216.857, 50.841 )
-
-[node name="ClonerEnter" parent="Cloners3" index="0"]
-position = Vector2( 39.9997, 88 )
-
-[node name="CollisionShape2D" parent="Cloners3/ClonerEnter" index="0"]
-position = Vector2( 0, -3.8147e-05 )
-
-[node name="ProgresBar" parent="Cloners3/ClonerEnter" index="3"]
-position = Vector2( 0, -8.00004 )
-
-[node name="ClonerExit" parent="Cloners3" index="1"]
-position = Vector2( 39.9997, 136 )
-
 [node name="LaunchPad" parent="." instance=ExtResource( 4 )]
-position = Vector2( 56, 80 )
+position = Vector2( 312.857, 42.841 )
+collision_layer = 6
+collision_mask = 6
 
 [node name="LaunchPad3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 104, 184 )
@@ -147,5 +119,3 @@ position = Vector2( 288.857, 90.841 )
 [connection signal="pressed" from="Button" to="Level2D/PlayerWithRespawn" method="_on_Button_pressed"]
 
 [editable path="Cloners"]
-[editable path="Cloners2"]
-[editable path="Cloners3"]
