@@ -24,11 +24,18 @@ func push():
 func _physics_process(delta):
 	if is_on_floor():
 		velocity.x = lerp(velocity.x, 0.0, friction)
-		velocity.y = 0
+		var can_jump = false
+		for i in get_slide_count():
+			var colision = get_slide_collision(i)
+			if colision.collider.is_in_group("player_group"):
+				can_jump = true
+		if (not can_jump) and is_on_floor():
+			velocity.y = 0
 	else:
 		velocity.y += gravity * delta
 	velocity += outside_velocity
-	velocity.y += gravity * delta
+	#velocity.y += gravity * delta
 	move_and_slide(velocity, Vector2.UP, false, 4, 0.78, true)
 	outside_velocity = Vector2.ZERO
 	push()
+	#print(velocity)
