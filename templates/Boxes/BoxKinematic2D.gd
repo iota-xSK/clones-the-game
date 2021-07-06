@@ -17,25 +17,15 @@ func push():
 		var colision = get_slide_collision(i)
 		var collider = colision.collider
 		if collider.is_in_group("physics_bodies") and colision.normal.y == 0:
-			velocity.x = velocity.x/2
-			collider.velocity.x = velocity.x
-
+#			velocity.x = (velocity.x * mass) / collider.mass
+#			collider.velocity.x = velocity.x
+			collider.velocity.x = (velocity.x * mass) / collider.mass
 
 func _physics_process(delta):
 	if is_on_floor():
-		velocity.x = lerp(velocity.x, 0.0, friction)
-		var can_jump = false
-		for i in get_slide_count():
-			var colision = get_slide_collision(i)
-			if colision.collider.is_in_group("player_group"):
-				can_jump = true
-		if (not can_jump) and is_on_floor():
-			velocity.y = 0
-	else:
-		velocity.y += gravity * delta
-	velocity += outside_velocity
-	#velocity.y += gravity * delta
-	move_and_slide(velocity, Vector2.UP, false, 4, 0.78, true)
-	outside_velocity = Vector2.ZERO
-	push()
-	#print(velocity)
+		velocity.x = lerp(velocity.x, 0.0, friction) # ako je na podu polako usporava
+	velocity += outside_velocity # dodaje brzinu koju druge stvari daju, kao npr launchpadi
+	velocity.y += gravity * delta # računa brzinu dobivenu gravitacijom
+	push() # ako gura druga tijela, promijeni svoju brzinu i njihovu
+	velocity = move_and_slide(velocity, Vector2.UP, false, 4, 0.78, false) # radi da se do sad izračunata brzina vidi na ekranu
+	outside_velocity = Vector2.ZERO # namješta vanjsku brzinu natrag na nula

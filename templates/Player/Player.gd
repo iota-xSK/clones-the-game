@@ -47,8 +47,9 @@ func push():
 			if collider.is_in_group("physics_bodies"):
 #				print(collider)
 				if colision.normal.y == 0: #if the normal is horizontal
-					velocity.x = velocity.x/2
-					collider.velocity.x = velocity.x
+					velocity.x = (velocity.x * mass) / collider.mass
+#					collider.velocity.x = velocity.x
+					collider.velocity.x = (velocity.x * mass) / collider.mass
 #				if colision.normal.y == 1:
 #					velocity.y = velocity.y
 #					collider.velocity.y = velocity.y/2
@@ -57,22 +58,9 @@ func push():
 #					print(velocity.y)
 
 func jump_and_push_up():
-#	print(get_slide_count())
-#	for i in get_slide_count():
-#		var collision = get_slide_collision(i)
-#		var collider = collision.collider
-#		print(collider)
-#		print(is_instance_valid(collider))
-#		print(collider.is_in_group("physics_bodies"))
-#		if is_instance_valid(collider) and collider.is_in_group("physics_bodies"):
-#			if collision.normal.y == 1:
-#				velocity.y = jump_speed
-#				collider.velocity = velocity
-#				outside_velocity.y = jump_speed
-#				print("bump")
 	if carrying:
-		carrying_object.velocity.y = jump_speed
-		carrying_object.velocity.x = velocity.x
+		carrying_object.outside_velocity.y = jump_speed
+		carrying_object.outside_velocity.x = velocity.x
 
 func _physics_process(delta):
 	get_input()
