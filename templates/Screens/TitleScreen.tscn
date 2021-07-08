@@ -38,17 +38,17 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="PlayButton" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
-margin_top = 61.0
-margin_bottom = 75.0
+margin_top = 55.0
+margin_bottom = 73.0
 text = "Play"
 
 [node name="PlayButton2" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
-margin_top = 79.0
-margin_bottom = 93.0
+margin_top = 77.0
+margin_bottom = 95.0
 
 [node name="PlayButton3" parent="VBoxContainer/CenterRow/Buttons" instance=ExtResource( 2 )]
-margin_top = 97.0
-margin_bottom = 111.0
+margin_top = 99.0
+margin_bottom = 117.0
 
 [node name="FadeIn" parent="." instance=ExtResource( 3 )]
 visible = false

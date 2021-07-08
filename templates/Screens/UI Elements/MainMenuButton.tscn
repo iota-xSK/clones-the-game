@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://theme.tres" type="Theme" id=1]
-[ext_resource path="res://templates/Screens/UI Elements/MenuButton.gd" type="Script" id=2]
+[ext_resource path="res://templates/Screens/UI Elements/MainMenuButton.gd" type="Script" id=2]
 
-[node name="PlayButton" type="Button"]
+[node name="ReturnToMainMenu" type="Button"]
 margin_right = 360.0
 margin_bottom = 11.0
 focus_mode = 0
@@ -15,4 +15,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="." to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="." to="." method="_on_ReturnToMainMenu_pressed"]

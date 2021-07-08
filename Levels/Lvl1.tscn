@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Art/world/tileset.png" type="Texture" id=1]
 [ext_resource path="res://templates/Player/PlayerWithRespawn.tscn" type="PackedScene" id=2]
 [ext_resource path="res://templates/Objects/Cloners/Cloners.tscn" type="PackedScene" id=3]
 [ext_resource path="res://templates/Objects/LaunchPads/LaunchPad.tscn" type="PackedScene" id=4]
 [ext_resource path="res://theme.tres" type="Theme" id=5]
+[ext_resource path="res://templates/Screens/UI Elements/MainMenuButton.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
@@ -109,12 +110,12 @@ points = PoolVector2Array( 15.4213, 15.9587, 15.9622, 14.9851, 15.9622, 16 )
 tile_set = SubResource( 4 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 458768, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655372, 0, 0 )
+tile_data = PoolIntArray( 327697, 0, 0, 327698, 0, 0, 393242, 0, 0, 458768, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524311, 1, 0, 524312, 0, 0, 589847, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655372, 0, 0, 720915, 0, 0, 720916, 0, 0, 720917, 0, 0, 720918, 0, 0 )
 
 [node name="Button" type="Button" parent="."]
-margin_left = 56.0
+margin_left = 364.0
 margin_top = 8.0
-margin_right = 129.0
+margin_right = 437.0
 margin_bottom = 28.0
 focus_mode = 0
 theme = ExtResource( 5 )
@@ -126,15 +127,15 @@ __meta__ = {
 }
 
 [node name="PlayerWithRespawn" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8, 28 )
+position = Vector2( 8, 148 )
 
 [node name="Cloners" parent="." instance=ExtResource( 3 )]
 
 [node name="ClonerEnter" parent="Cloners" index="0"]
-position = Vector2( 24, 8 )
+position = Vector2( 104, 152 )
 
 [node name="ClonerExit" parent="Cloners" index="1"]
-position = Vector2( 40, 8 )
+position = Vector2( 216, 120 )
 
 [node name="LaunchPad" parent="." instance=ExtResource( 4 )]
 position = Vector2( 8, 8 )
@@ -142,6 +143,13 @@ position = Vector2( 8, 8 )
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 240, 136 )
 current = true
+
+[node name="PlayButton" parent="." instance=ExtResource( 6 )]
+margin_left = 364.0
+margin_top = 36.0
+margin_right = 476.0
+margin_bottom = 54.0
+text = "Go to main menu"
 
 [connection signal="pressed" from="Button" to="PlayerWithRespawn" method="_on_Button_pressed"]
 

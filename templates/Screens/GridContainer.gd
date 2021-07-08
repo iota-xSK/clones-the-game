@@ -37,7 +37,7 @@ func _ready():
 
 	print(levels, level_dict)
 	
-	for i in range(1, len(level_dict)+1):
+	for i in range(len(level_dict)):
 		var button_instance = LevelButton.instance()
 		add_child(button_instance)
 		button_instance.text = str(i)
