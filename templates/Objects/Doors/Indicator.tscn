@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="Indicator" type="TextureRect"]
+margin_right = 4.0
+margin_bottom = 4.0
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}

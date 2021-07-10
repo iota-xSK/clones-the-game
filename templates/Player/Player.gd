@@ -10,6 +10,7 @@ var gravity
 var velocity = Vector2.ZERO
 var carrying = false
 var carrying_object = null
+var movement = true
 
 var movable_bodies = []
 
@@ -63,8 +64,9 @@ func jump_and_push_up():
 		carrying_object.outside_velocity.x = velocity.x
 
 func _physics_process(delta):
-	get_input()
-	velocity.y += gravity * delta
+	if movement == true:
+			get_input()
+			velocity.y += gravity * delta
 	var bodies = push()
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_floor():

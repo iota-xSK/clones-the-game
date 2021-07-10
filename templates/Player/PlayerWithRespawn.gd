@@ -13,9 +13,9 @@ func _ready():
 func on_Player_screen_exited():
 #	print("respawner got message, waiting...")
 	yield(get_tree().create_timer(1.0), "timeout")
-	if len(get_tree().get_nodes_in_group("player_group")) == 0 and safe_to_respawn == true:
-		safe_to_respawn = false
-		respawn()
+	#if len(get_tree().get_nodes_in_group("player_group")) == 0 and safe_to_respawn == true:
+	#	safe_to_respawn = false
+	#	respawn()
 	yield(get_tree().create_timer(1.0), "timeout")
 	safe_to_respawn = true
 

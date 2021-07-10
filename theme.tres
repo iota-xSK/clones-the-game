@@ -6,7 +6,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxLine" id=6]
+[sub_resource type="StyleBoxLine" id=3]
 content_margin_left = 9.0
 content_margin_right = 9.0
 content_margin_top = 2.0
@@ -14,7 +14,7 @@ content_margin_bottom = 2.0
 color = Color( 0.952941, 0.0509804, 0.160784, 1 )
 vertical = true
 
-[sub_resource type="StyleBoxLine" id=7]
+[sub_resource type="StyleBoxLine" id=4]
 content_margin_left = 9.0
 content_margin_right = 9.0
 content_margin_top = 2.0
@@ -46,6 +46,6 @@ Button/constants/hseparation = 2
 Button/fonts/font = ExtResource( 1 )
 Button/styles/disabled = SubResource( 1 )
 Button/styles/focus = SubResource( 2 )
-Button/styles/hover = SubResource( 6 )
-Button/styles/normal = SubResource( 7 )
+Button/styles/hover = SubResource( 3 )
+Button/styles/normal = SubResource( 4 )
 Button/styles/pressed = SubResource( 5 )

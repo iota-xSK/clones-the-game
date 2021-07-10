@@ -16,10 +16,9 @@ func push():
 	for i in get_slide_count():
 		var colision = get_slide_collision(i)
 		var collider = colision.collider
-		if collider.is_in_group("physics_bodies") and colision.normal.y == 0:
-#			velocity.x = (velocity.x * mass) / collider.mass
-#			collider.velocity.x = velocity.x
-			collider.velocity.x = (velocity.x * mass) / collider.mass
+		if is_instance_valid(collider):
+			if collider.is_in_group("physics_bodies") and colision.normal.y == 0:
+				collider.velocity.x = (velocity.x * mass) / collider.mass
 
 func _physics_process(delta):
 	if is_on_floor():
