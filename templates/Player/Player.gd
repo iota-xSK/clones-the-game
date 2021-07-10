@@ -67,14 +67,14 @@ func _physics_process(delta):
 	if movement == true:
 			get_input()
 			velocity.y += gravity * delta
+			if Input.is_action_just_pressed("move_down"):
+				if not is_on_floor():
+					velocity.y += -2 * jump_speed
 	var bodies = push()
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_floor():
 			velocity.y = jump_speed
 			jump_and_push_up()
-	if Input.is_action_just_pressed("move_down"):
-		if not is_on_floor():
-			velocity.y += -2 * jump_speed
 	velocity += outside_velocity
 	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, false)
 #	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, true)

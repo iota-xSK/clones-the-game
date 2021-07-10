@@ -25,8 +25,15 @@ func _on_Doors_body_entered(body):
 		if len(clone_array) <= clones_needed:
 			indicators[len(clone_array) - 1].texture = on_texture
 		if len(clone_array) >= clones_needed:
-			yield(get_tree().create_timer(1.0), "timeout")
-			print("won")
+			yield(get_tree().create_timer(0.5), "timeout")
+			if len(clone_array) >= clones_needed:
+				for clone in get_tree().get_nodes_in_group("player_group"):
+					clone.movement = false
+					clone.velocity = Vector2.ZERO
+					clone.set_collision_mask(0b00000000000000000000)
+					#clone.get_node("CollisionShape2D").disabled = true
+				$Door.play()
+ 
 func _on_Doors_body_exited(body):
 	if body.is_in_group("player_group"):
 		if len(clone_array) - 1 < clones_needed:
@@ -37,12 +44,18 @@ func move_clone(clone):
 	clone.outside_velocity = $Door.get_global_transform().origin - clone.get_global_transform().origin
 
 func _on_Door_animation_finished():
-	pass
-#	print("animation finished")
-#	play_clone_animation = true
+	play_clone_animation = true
 
 func _physics_process(delta):
+	if play_clone_animation and clone_array:
+		move_clone(clone_array[clone_to_remove])
+		if clone_array[0].get_global_transform().origin.distance_to($Door.get_global_transform().origin) < 4:
+			clone_array[0].call_deferred("queue_free")
+	elif play_clone_animation and not clone_array:
+		emit_signal("finished level")
+#	print(clone_array, clone_to_remove)
 #	if clone_array and len(clone_array) > clone_to_remove:
+#		print("passed")
 #		if play_clone_animation:
 #			move_clone(clone_array[clone_to_remove])
 #		if clone_array[clone_to_remove].get_global_transform().origin.distance_to($Door.get_global_transform().origin) < 4:
