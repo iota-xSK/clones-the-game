@@ -9,7 +9,6 @@
 [node name="TestLevel" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray(  )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 56.0
