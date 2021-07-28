@@ -1,15 +1,14 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://templates/Objects/TileMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://templates/Player/PlayerWithRespawn.tscn" type="PackedScene" id=2]
+[ext_resource path="res://theme.tres" type="Theme" id=1]
+[ext_resource path="res://templates/Objects/LaunchPads/LaunchPad.tscn" type="PackedScene" id=2]
 [ext_resource path="res://templates/Objects/Cloners/Cloners.tscn" type="PackedScene" id=3]
-[ext_resource path="res://templates/Objects/LaunchPads/LaunchPad.tscn" type="PackedScene" id=4]
-[ext_resource path="res://theme.tres" type="Theme" id=5]
+[ext_resource path="res://templates/Player/PlayerWithRespawn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://templates/Objects/TileMap.tscn" type="PackedScene" id=5]
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="TileMap" parent="." instance=ExtResource( 1 )]
-tile_data = PoolIntArray(  )
+[node name="TileMap" parent="." instance=ExtResource( 5 )]
 
 [node name="Button" type="Button" parent="."]
 margin_left = 56.0
@@ -17,7 +16,7 @@ margin_top = 8.0
 margin_right = 129.0
 margin_bottom = 28.0
 focus_mode = 0
-theme = ExtResource( 5 )
+theme = ExtResource( 1 )
 shortcut_in_tooltip = false
 enabled_focus_mode = 0
 text = "Respawn"
@@ -25,7 +24,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayerWithRespawn" parent="." instance=ExtResource( 2 )]
+[node name="PlayerWithRespawn" parent="." instance=ExtResource( 4 )]
 position = Vector2( 8, 28 )
 
 [node name="Cloners" parent="." instance=ExtResource( 3 )]
@@ -36,7 +35,7 @@ position = Vector2( 24, 8 )
 [node name="ClonerExit" parent="Cloners" index="1"]
 position = Vector2( 40, 8 )
 
-[node name="LaunchPad" parent="." instance=ExtResource( 4 )]
+[node name="LaunchPad" parent="." instance=ExtResource( 2 )]
 position = Vector2( 8, 8 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

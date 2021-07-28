@@ -12,6 +12,6 @@ func _physics_process(delta):
 		velocity = moving_to_vector(start_position)
 	var collision = move_and_collide(velocity * delta * $".." .speed)
 	if collision:
-		if collision.collider.is_in_group("player_group") and collision.normal.y != 0:
+		if collision.collider.is_in_group("player_group") and collision.normal.y == -1:
 			#crushes the clone
 			collision.collider.call_deferred("queue_free")

@@ -11,6 +11,7 @@ var velocity = Vector2.ZERO
 var carrying = false
 var carrying_object = null
 var movement = true
+var snap = 1
 
 var movable_bodies = []
 
@@ -66,6 +67,8 @@ func jump_and_push_up():
 func _physics_process(delta):
 	if movement == true:
 			velocity.y += gravity * delta
+			if get_floor_normal().x != 0:
+				velocity.y = 0
 			get_input()
 			if Input.is_action_just_pressed("move_down"):
 				if not is_on_floor():
@@ -73,13 +76,13 @@ func _physics_process(delta):
 	var bodies = push()
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_floor():
+			snap = 0
 			velocity.y = jump_speed
 			jump_and_push_up()
 	velocity += outside_velocity
-	velocity = move_and_slide(velocity, Vector2.UP, true)
-#	velocity = move_and_slide(velocity, Vector2.UP, false, 4, PI/4, true)
+	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN * 10 * snap, Vector2.UP, true)
 	outside_velocity = Vector2(0, 0)
-
+	snap = 1
 
 func _on_Area2D_body_entered(body):
 	carrying = true

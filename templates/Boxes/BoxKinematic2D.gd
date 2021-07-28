@@ -25,6 +25,6 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, 0.0, friction) # ako je na podu polako usporava
 	velocity += outside_velocity # dodaje brzinu koju druge stvari daju, kao npr launchpadi
 	velocity.y += gravity * delta # računa brzinu dobivenu gravitacijom
-	push() # ako gura druga tijela, promijeni svoju brzinu i njihovu
+	push() # ako s druga tijela, promijeni svoju brzinu i njihovu
 	velocity = move_and_slide(velocity, Vector2.UP, false, 4, 0.78, false) # radi da se do sad izračunata brzina vidi na ekranu
 	outside_velocity = Vector2.ZERO # namješta vanjsku brzinu natrag na nula

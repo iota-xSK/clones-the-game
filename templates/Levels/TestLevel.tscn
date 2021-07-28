@@ -16,7 +16,7 @@ position = Vector2( 7.14331, 5.15904 )
 
 [node name="Doors" parent="." instance=ExtResource( 10 )]
 position = Vector2( 320.857, 42.841 )
-clones_needed = 5
+clones_needed = 2
 
 [node name="MovableWall" parent="." instance=ExtResource( 9 )]
 position = Vector2( 64.8567, 74.841 )
@@ -55,60 +55,40 @@ current = true
 [node name="Level2D" parent="." instance=ExtResource( 6 )]
 
 [node name="PlayerWithRespawn" parent="Level2D" instance=ExtResource( 2 )]
-position = Vector2( 244.857, 38.841 )
+position = Vector2( 288.857, 14.841 )
 
-[node name="BoxKinematic2D" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
+[node name="BoxKinematic2D" parent="Level2D" instance=ExtResource( 7 )]
 position = Vector2( 304.857, 186.841 )
 
-[node name="BoxKinematic2D2" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
-position = Vector2( 368.857, 90.841 )
+[node name="BoxKinematic2D2" parent="Level2D" instance=ExtResource( 7 )]
+position = Vector2( 48.8567, 14.841 )
 
-[node name="BoxKinematic2D4" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
+[node name="BoxKinematic2D4" parent="Level2D" instance=ExtResource( 7 )]
 position = Vector2( 320.857, 186.841 )
 
-[node name="BoxKinematic2D5" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
-position = Vector2( 336.857, 138.841 )
+[node name="BoxKinematic2D5" parent="Level2D" instance=ExtResource( 7 )]
+position = Vector2( 348.857, 138.841 )
 
-[node name="BoxKinematic2D7" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
+[node name="BoxKinematic2D7" parent="Level2D" instance=ExtResource( 7 )]
 position = Vector2( 280.857, 186.841 )
 
-[node name="BoxKinematic2D8" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
+[node name="BoxKinematic2D8" parent="Level2D" instance=ExtResource( 7 )]
 position = Vector2( 344.857, 186.841 )
 
-[node name="BoxKinematic2D9" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
-position = Vector2( 336.857, 90.841 )
+[node name="BoxKinematic2D9" parent="Level2D" instance=ExtResource( 7 )]
+position = Vector2( 332.857, 138.841 )
 
-[node name="BoxKinematic2D10" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
+[node name="BoxKinematic2D10" parent="Level2D" instance=ExtResource( 7 )]
 position = Vector2( 376.857, 186.841 )
 
-[node name="BoxKinematic2D3" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
+[node name="BoxKinematic2D3" parent="Level2D" instance=ExtResource( 7 )]
 position = Vector2( 360.857, 186.841 )
 
-[node name="BoxKinematic2D6" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 7 )]
-position = Vector2( 352.857, 90.841 )
+[node name="BoxKinematic2D6" parent="Level2D" instance=ExtResource( 7 )]
+position = Vector2( 332.857, 90.841 )
 
 [node name="LaunchPad" parent="Level2D" instance=ExtResource( 4 )]
-position = Vector2( 152.857, 74.841 )
+position = Vector2( 96.8567, 42.841 )
 collision_layer = 6
 collision_mask = 6
 
@@ -130,10 +110,10 @@ position = Vector2( 80.8567, 74.841 )
 position = Vector2( 316.857, 90.841 )
 
 [node name="ClonerExit" parent="Cloners" index="1"]
-position = Vector2( 0, 48 )
+position = Vector2( -4.00031, 48 )
 
 [node name="Cloners2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 208.857, 42.841 )
+position = Vector2( 128.857, 74.841 )
 
 [connection signal="pressed" from="Button" to="Level2D/PlayerWithRespawn" method="_on_Button_pressed"]
 
