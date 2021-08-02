@@ -48,7 +48,7 @@ position = Vector2( 240, 136 )
 current = true
 
 [node name="MovableWall" parent="." instance=ExtResource( 8 )]
-position = Vector2( 36, 200 )
+position = Vector2( 40, 200 )
 speed = 5.0
 
 [node name="MovableWall2" parent="." instance=ExtResource( 8 )]

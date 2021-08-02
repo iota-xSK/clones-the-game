@@ -12,6 +12,7 @@ var carrying = false
 var carrying_object = null
 var movement = true
 var snap = 1
+var jumping = false
 
 var movable_bodies = []
 
@@ -37,7 +38,7 @@ func get_input():
 		dir -= 1
 	if dir != 0:
 		velocity.x = lerp(velocity.x, dir * speed, acceleration)
-	else:
+	elif is_on_floor() or jumping:
 		velocity.x = lerp(velocity.x, 0, friction)	
 
 
@@ -66,6 +67,8 @@ func jump_and_push_up():
 
 func _physics_process(delta):
 	if movement == true:
+			if is_on_floor():
+				jumping = false
 			velocity.y += gravity * delta
 			if get_floor_normal().x != 0:
 				velocity.y = 0
@@ -77,9 +80,11 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("move_jump"):
 		if is_on_floor():
 			snap = 0
+			jumping = true
 			velocity.y = jump_speed
 			jump_and_push_up()
-	velocity += outside_velocity
+	if outside_velocity != Vector2.ZERO:
+		velocity = outside_velocity
 	velocity = move_and_slide_with_snap(velocity, Vector2.DOWN * 10 * snap, Vector2.UP, true)
 	outside_velocity = Vector2(0, 0)
 	snap = 1

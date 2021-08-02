@@ -35,13 +35,30 @@ collision_mask = 2
 script = ExtResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 6 )
+position = Vector2( 0, 9 )
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 64, 0 )
+[node name="EndPosition" type="Position2D" parent="."]
+position = Vector2( 80, -16 )
+
+[node name="ColorRect" type="ColorRect" parent="EndPosition"]
+margin_right = 8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnglePosition" type="Position2D" parent="."]
+position = Vector2( 32, -24 )
+
+[node name="ColorRect" type="ColorRect" parent="AnglePosition"]
+margin_right = 8.0
+margin_bottom = 8.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="body_entered" from="." to="." method="_on_LaunchPad_body_entered"]

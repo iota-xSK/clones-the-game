@@ -1,38 +1,27 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://templates/Levels/TestLevel.tres" type="TileSet" id=1]
 [ext_resource path="res://templates/Player/PlayerWithRespawn.tscn" type="PackedScene" id=2]
-[ext_resource path="res://templates/Objects/Cloners/Cloners.tscn" type="PackedScene" id=3]
 [ext_resource path="res://templates/Objects/LaunchPads/LaunchPad.tscn" type="PackedScene" id=4]
 [ext_resource path="res://theme.tres" type="Theme" id=5]
 [ext_resource path="res://templates/Physics/PhysicsBodies.tscn" type="PackedScene" id=6]
 [ext_resource path="res://templates/Boxes/BoxKinematic2D.tscn" type="PackedScene" id=7]
-[ext_resource path="res://templates/Objects/Button.tscn" type="PackedScene" id=8]
-[ext_resource path="res://templates/Objects/MovableWall/MovableWall.tscn" type="PackedScene" id=9]
 [ext_resource path="res://templates/Objects/Doors/Doors.tscn" type="PackedScene" id=10]
 
 [node name="TestLevel" type="Node2D"]
-position = Vector2( 7.14331, 5.15904 )
 
 [node name="Doors" parent="." instance=ExtResource( 10 )]
 position = Vector2( 320.857, 42.841 )
 clones_needed = 2
 
-[node name="MovableWall" parent="." instance=ExtResource( 9 )]
-position = Vector2( 64.8567, 74.841 )
-speed = 5.0
-
-[node name="WallKinematicBody2D" parent="MovableWall" index="0"]
-position = Vector2( 0, 7.62939e-06 )
-
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2( 9, 2.822 )
+position = Vector2( 0, 32 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 collision_friction = 0.0
 collision_layer = 0
 format = 1
-tile_data = PoolIntArray( 17, 1, 0, 65538, 0, 0, 65552, 1, 0, 65554, 0, 0, 131074, 0, 0, 131087, 1, 0, 131089, 0, 0, 131090, 0, 0, 131096, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327697, 2, 0, 327699, 2, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 524293, 0, 0, 524296, 1, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589831, 1, 0, 589833, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589847, 0, 0, 655366, 1, 0, 655368, 0, 0, 655369, 0, 0, 720903, 0, 0, 720904, 0, 0, 720905, 0, 0, 786439, 0, 0, 786440, 0, 0, 786441, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0 )
+tile_data = PoolIntArray( -65533, 0, 0, -65532, 0, 0, 17, 1, 0, 65552, 1, 0, 65554, 0, 0, 131087, 1, 0, 131089, 0, 0, 131090, 0, 0, 131096, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327697, 2, 0, 327699, 2, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 524293, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589837, 0, 0, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 0, 589845, 0, 0, 589846, 0, 0, 589847, 0, 0, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0 )
 
 [node name="Button" type="Button" parent="."]
 margin_left = 360.857
@@ -48,75 +37,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 248.857, 74.841 )
-current = true
-
 [node name="Level2D" parent="." instance=ExtResource( 6 )]
 
 [node name="PlayerWithRespawn" parent="Level2D" instance=ExtResource( 2 )]
-position = Vector2( 288.857, 14.841 )
-
-[node name="BoxKinematic2D" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 304.857, 186.841 )
-
-[node name="BoxKinematic2D2" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 48.8567, 14.841 )
-
-[node name="BoxKinematic2D4" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 320.857, 186.841 )
-
-[node name="BoxKinematic2D5" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 348.857, 138.841 )
-
-[node name="BoxKinematic2D7" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 280.857, 186.841 )
-
-[node name="BoxKinematic2D8" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 344.857, 186.841 )
-
-[node name="BoxKinematic2D9" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 332.857, 138.841 )
-
-[node name="BoxKinematic2D10" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 376.857, 186.841 )
-
-[node name="BoxKinematic2D3" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 360.857, 186.841 )
+position = Vector2( 56, -4 )
 
 [node name="BoxKinematic2D6" parent="Level2D" instance=ExtResource( 7 )]
-position = Vector2( 332.857, 90.841 )
+position = Vector2( 44, 64 )
+
+[node name="BoxKinematic2D7" parent="Level2D" instance=ExtResource( 7 )]
+position = Vector2( 68, 72 )
 
 [node name="LaunchPad" parent="Level2D" instance=ExtResource( 4 )]
-position = Vector2( 96.8567, 42.841 )
+position = Vector2( 88, 72 )
 collision_layer = 6
 collision_mask = 6
 
-[node name="LaunchPad2" parent="Level2D" instance=ExtResource( 4 )]
-position = Vector2( 176.857, 74.841 )
-collision_layer = 6
-collision_mask = 6
+[node name="EndPosition" parent="Level2D/LaunchPad" index="2"]
+position = Vector2( 92, 0 )
 
-[node name="AnimatedSprite" parent="Level2D/LaunchPad2" index="1"]
-position = Vector2( -0.000305176, -4.57764e-05 )
-
-[node name="Position2D" parent="Level2D/LaunchPad2" index="2"]
-position = Vector2( -64, 8 )
-
-[node name="Button2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 80.8567, 74.841 )
-
-[node name="Cloners" parent="." instance=ExtResource( 3 )]
-position = Vector2( 316.857, 90.841 )
-
-[node name="ClonerExit" parent="Cloners" index="1"]
-position = Vector2( -4.00031, 48 )
-
-[node name="Cloners2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 128.857, 74.841 )
+[node name="AnglePosition" parent="Level2D/LaunchPad" index="3"]
+position = Vector2( 48, -56 )
 
 [connection signal="pressed" from="Button" to="Level2D/PlayerWithRespawn" method="_on_Button_pressed"]
 
-[editable path="MovableWall"]
-[editable path="Level2D/LaunchPad2"]
-[editable path="Cloners"]
+[editable path="Level2D/LaunchPad"]
