@@ -4,7 +4,7 @@
 [ext_resource path="res://theme.tres" type="Theme" id=2]
 [ext_resource path="res://templates/Levels/TestLevel.tres" type="TileSet" id=3]
 [ext_resource path="res://templates/Objects/Button.tscn" type="PackedScene" id=4]
-[ext_resource path="res://templates/Physics/PhysicsBodies.tscn" type="PackedScene" id=5]
+[ext_resource path="res://templates/Physics/Level2D.tscn" type="PackedScene" id=5]
 [ext_resource path="res://templates/Player/PlayerWithRespawn.tscn" type="PackedScene" id=6]
 [ext_resource path="res://templates/Objects/Cloners/Cloners.tscn" type="PackedScene" id=7]
 [ext_resource path="res://templates/Screens/UI Elements/MainMenuButton.tscn" type="PackedScene" id=8]
@@ -88,54 +88,34 @@ current = true
 [node name="PlayerWithRespawn" parent="Level2D" instance=ExtResource( 6 )]
 position = Vector2( 256.857, 42.841 )
 
-[node name="BoxKinematic2D" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 384.857, 186.841 )
 
-[node name="BoxKinematic2D2" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D2" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 320.857, 90.841 )
 
-[node name="BoxKinematic2D4" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D4" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 320.857, 186.841 )
 
-[node name="BoxKinematic2D5" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D5" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 320.857, 138.841 )
 
-[node name="BoxKinematic2D7" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D7" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 288.857, 186.841 )
 
-[node name="BoxKinematic2D8" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D8" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 352.857, 186.841 )
 
-[node name="BoxKinematic2D9" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D9" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 288.857, 42.841 )
 
-[node name="BoxKinematic2D10" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D10" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 352.857, 138.841 )
 
-[node name="BoxKinematic2D3" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D3" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 288.857, 138.841 )
 
-[node name="BoxKinematic2D6" parent="Level2D" groups=[
-"physics_bodies",
-] instance=ExtResource( 1 )]
+[node name="BoxKinematic2D6" parent="Level2D" instance=ExtResource( 1 )]
 position = Vector2( 288.857, 90.841 )
 
 [node name="Button2" parent="." instance=ExtResource( 4 )]

@@ -23,6 +23,7 @@ func push():
 
 func _physics_process(delta):
 	if is_on_floor():
+		velocity = Vector2.ZERO
 		velocity.x = lerp(velocity.x, 0.0, friction) # ako je na podu polako usporava
 	velocity.y += gravity * delta # računa brzinu dobivenu gravitacijom
 	push() # ako s druga tijela, promijeni svoju brzinu i njihovu

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://templates/Levels/NewLevelArchitectureTest.gd" type="Script" id=1]
-[ext_resource path="res://templates/Physics/PhysicsBodies.tscn" type="PackedScene" id=2]
+[ext_resource path="res://templates/Physics/Level2D.tscn" type="PackedScene" id=2]
 [ext_resource path="res://templates/Objects/TileMap.tscn" type="PackedScene" id=3]
 [ext_resource path="res://templates/Objects/Button.tscn" type="PackedScene" id=4]
 [ext_resource path="res://templates/Objects/Cloners/Cloners.tscn" type="PackedScene" id=5]
